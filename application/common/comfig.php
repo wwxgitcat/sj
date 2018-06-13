@@ -1,9 +1,10 @@
 <?php 
 return [
 	'view_replace_str' => [
-	        '__CSS__'=>'/public/amazeui/css',
-	        '__JS__'=>'/public/amazeui/js',
-	        '__IMG__'=>'/public/default/'
+	        '__CSS__'=>'/public/css',
+	        '__JS__'=>'/public/js',
+	        
+	        '__IMG__'=>'/default/'
 	],
 ]
 ?>

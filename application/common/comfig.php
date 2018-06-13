@@ -5,7 +5,7 @@ return [
 	        '__JS__'=>'/public/js',
 	        '__JSS__'=>'/public/js',
 	        
-	        '__IMGS__'=>'/default/'
+	        '__IMG1S__'=>'/default/'
 	],
 ]
 ?>

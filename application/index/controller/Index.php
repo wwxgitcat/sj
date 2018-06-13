@@ -7,4 +7,9 @@ class Index
     {
     	return view("index");
     }
+
+    public function cate()
+    {
+    	return view("cate");
+    }
 }

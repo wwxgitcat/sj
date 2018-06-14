@@ -1,5 +1,5 @@
 <?php
-// include("ResultSet.php");
+include("ResultSet.php");
 
 class TopClient
 {
@@ -226,7 +226,7 @@ class TopClient
 
 	public function execute($request, $session = null,$bestUrl = null)
 	{
-		$result =  new ResultSet(); 
+		$result =  new \ResultSet(); 
 		if($this->checkRequest) {
 			try {
 				$request->check();

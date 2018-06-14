@@ -1,5 +1,4 @@
 <?php
-namespace tb\top;
 /**
  * 返回的默认类
  * 

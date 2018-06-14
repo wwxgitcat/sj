@@ -5,14 +5,10 @@
 <title>__URL__</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <meta name="format-detection" content="telephone=no">
 <meta name="renderer" content="webkit">
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-<!-- <link rel="stylesheet" href="amazeui/css/amazeui.min.css"/>
-<link rel="stylesheet" href="__default__/style.css"/>
-<script src="amazeui/js/jquery.min.js"></script>
-<script src="amazeui/js/amazeui.min.js"></script> -->
-
 <link rel="stylesheet" href="__css__/amazeui.min.css"/>
 <link rel="stylesheet" href="__default__/style.css"/>
 <script src="__js__/jquery.min.js"></script>
@@ -76,15 +72,17 @@
     </div>
     <div class="am-cf am-g">
     	<ul class="am-avg-sm-2 my-shop-product-list">
+          {foreach name ="data" item="vo"}      
         	<li>
             	<div class="am-panel am-panel-default">
                     <div class="am-panel-bd">
-                    	<img class="am-img-responsive" src="__default__/img2.jpg" />
-                        <h3><a href="#">电蟒原装智能遥控器</a></h3>
+                    	<img class="am-img-responsive" src="{$vo.pict_url}" />
+                        <h3><a href="{$vo.item_url}">{$vo['title']}</a></h3>
                         <div>
-                            <span class="list-product-price-span">￥89.00</span>
-                            <span class="list-product-commission-span">佣金<br/>2.84</span>
-                            <span class="list-product-sorce-span">积分<br/>4</span>
+                            <span class="list-product-price-span">￥{$vo['reserve_price']}</span>
+                            <span class="list-product-price-span">折扣价￥{$vo['zk_final_price']}</span>
+                            <span class="list-product-commission-span">销量<br/>{$vo.volume}</span>
+                            <!-- <span class="list-product-sorce-span">省份<br/>{$vo.provcity}</span> -->
                         </div>
                         <hr data-am-widget="divider" style="" class="am-divider am-divider-default am-cf"/>
                         <ol class="am-avg-sm-3 product-list-share">
@@ -95,6 +93,7 @@
                     </div>
                 </div>
             </li>
+            {/foreach}
         </ul>
     </div>
     

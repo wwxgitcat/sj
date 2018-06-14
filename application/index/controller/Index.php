@@ -1,11 +1,17 @@
 <?php
 namespace app\index\controller;
-
+use tb\Tb;
 class Index
 {
     public function index()
     {
-    	return view("index");
+    	$tb = new Tb();
+    	$res = $tb->dis();
+
+    	// return view("index");
+    	// $arr = [
+    	// 	''
+    	// ]
     }
 
     public function cate()

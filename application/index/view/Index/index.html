@@ -76,8 +76,8 @@
         	<li>
             	<div class="am-panel am-panel-default">
                     <div class="am-panel-bd">
-                    	<img class="am-img-responsive" src="{$vo.pict_url}" />
-                        <h3><a href="{$vo.item_url}">{$vo['title']}</a></h3>
+                    	<!-- <img class="am-img-responsive" src="{$vo.pict_url}" /> -->
+                        <h3><a href=__URL__/kouling?url="{$vo.item_url}">{$vo['title']}</a></h3>
                         <div>
                             <span class="list-product-price-span">￥{$vo['reserve_price']}</span>
                             <span class="list-product-price-span">折扣价￥{$vo['zk_final_price']}</span>
@@ -95,6 +95,9 @@
             </li>
             {/foreach}
         </ul>
+        <button class="am-footer-miscs">
+          查询更多...
+        </button>
     </div>
     
     

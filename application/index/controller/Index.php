@@ -23,30 +23,6 @@ class Index extends Controller
         return view("index");
     }
 
-    public function yhq()
-    {
-        $tb = new Tb();
-        // $search = input("search");
-        $res = $tb->shopList("衣服");
-        dump($res);exit;
-        $this->assign("data",$res);
-        return view("index");
-    }
-
-    /**
-     * 搜素
-     * @return [type] [description]
-     */
-    public function coupon()
-    {
-        $tb = new Tb();
-        // $search = input("search");
-        $res = $tb->couponGet("衣服");
-        dump($res);exit;
-        $this->assign("data",$res);
-        return view("index");
-    }
-
     /**
      * 口令
      * @return [type] [description]
@@ -62,26 +38,30 @@ class Index extends Controller
         $this->assign("data",$res);
         return view("index");
     	return view("cate");
-    
     }
 
-
-    public function likeItem()
+    /**
+     * dg搜索
+     * @return [type] [description]
+     */
+    public function dgSearch()
     {
+        $arr = [
+            'size' => input("size",1),
+            'no' => input("no",10),
+            'search' => input("search",""),
+            'cate' => "16,18",
+            'has_coupon' => "true",
+            'ip' => "127.0.0.1",
+        ];
         $tb = new Tb();
-        return $tb->favorites_item();
-    }
+        $res = $tb->dgMaterialGet($arr);
+        $res = _arr_json($res);
+        $res = json_decode($res,true);
+        $this->assign("data",$res['status']['result_list']['map_data']);
+        return view("index");
 
-    public function getProductDetail()
-    {
-        $tb = new Tb();
-        return $tb->product_detail();
-    }
-
-    public function appip()
-    {
-        $tb = new Tb();
-        $req = new AppipGetRequest;
-        $resp = $c->execute($req);
+        // return _arr_json($req);
+        // return $req;
     }
 }

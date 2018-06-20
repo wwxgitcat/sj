@@ -14,14 +14,16 @@ namespace tb;
 // include("./top/RequestCheckUtil.php");
 // include("./top/TopLogger.php");
 
-// include("/conf/config.php");
+include("/conf/config.php");
 include "TopSdk.php";
+// include __DIR__."/conf/config.php";
 include __DIR__."/top/TopClient.php";
 include __DIR__."/top/request/TbkItemGetRequest.php";
 include __DIR__."/top/request/TbkTpwdCreateRequest.php";
 include __DIR__."/top/request/WirelessShareTpwdCreateRequest.php";
 include __DIR__."/top/domain/GenPwdIsvParamDto.php";
 include __DIR__."/top/request/TbkUatmFavoritesItemGetRequest.php";
+include __DIR__."/top/request/TbkScMaterialOptionalRequest.php";
 
 class Tb 
 {
@@ -31,8 +33,8 @@ class Tb
 
 	public function __construct(){
 		$this->tc = new \TopClient();
-		$this->tc->appkey = "23456114";
-		$this->tc->secretKey = "930a58600e04bda37ec2e19d49a82923";
+		$this->tc->appkey = APPKEY;
+		$this->tc->secretKey = SECRETKEY;
 	}
 
 	/**
@@ -115,15 +117,6 @@ class Tb
 		$resp = $this->tc->execute($req);
 		dump($resp);exit;
 	}
-
-	// public function tgq()
-	// {
-	// 	$req = new \TbkCouponGetRequest();
-	// 	$req->setMe("nfr%2BYTo2k1PX18gaNN%2BIPkIG2PadNYbBnwEsv6mRavWieOoOE3L9OdmbDSSyHbGxBAXjHpLKvZbL1320ML%2BCF5FRtW7N7yJ056Lgym4X01A%3D");
-	// 	$req->setItemId("123");
-	// 	$req->setActivityId("sdfwe3eefsdf");
-	// 	$resp = $c->execute($req);
-	// }
 	
 	// 关联查询
 	public function recommend()
@@ -279,12 +272,13 @@ class Tb
 	public function couponGet($q)
 	{
 		$req = new \TbkDgItemCouponGetRequest();
-		$req->setAdzoneId("123"); //mm_xxx_xxx_xxx的第三位
-		// $req->setPlatform("1");
+		$req->setAdzoneId("16390990");
+		$req->setPlatform("2");
 		// $req->setCat("16,18");
 		// $req->setPageSize("1");
 		$req->setQ($q); //	查询词
-		// $req->setPageNo("1"); 
+		// $req->setPageNo("10"); 
+		// dump($req);exit;
 		$resp = $this->tc->execute($req);
 		dump($resp);exit;
 	}
@@ -292,7 +286,7 @@ class Tb
 	public function flowInfo()
 	{
 		$req = new \TbkContentGetRequest();
-		$req->setAdzoneId("123");  //推广位
+		$req->setAdzoneId(""); 
 		$req->setType("1");
 		$req->setBeforeTimestamp("1491454244598");
 		$req->setCount("10");
@@ -301,7 +295,75 @@ class Tb
 		$req->setImageHeight("300");
 		$req->setContentSet("1");
 		$resp = $c->execute($req);
+
 	}
+
+	public function materialSearch()
+	{
+		$req = new \TbkScMaterialOptionalRequest();
+		// $req->setStartDsr("10");
+		// $req->setPageSize("20");
+		// $req->setPageNo("1");
+		// $req->setPlatform("1");
+		// $req->setEndTkRate("1234");
+		// $req->setStartTkRate("1234");
+		// $req->setEndPrice("10");
+		// $req->setStartPrice("10");
+		// $req->setIsOverseas("false");
+		// $req->setIsTmall("false");
+		// $req->setSort("tk_rate_des");
+		// $req->setCat("16,18");
+		$req->setQ("xiaomi");
+		$req->setAdzoneId("61794260");
+		$req->setSiteId("16390990");
+		$req->setHasCoupon("false");
+		// $req->setIp("13.2.33.4");
+		// $req->setIncludeRfdRate("true");
+		// $req->setIncludeGoodRate("true");
+		// $req->setIncludePayRate30("true");
+		// $req->setNeedPrepay("true");
+		// $req->setNeedFreeShipment("true");
+		// $req->setNpxLevel("2");
+		$resp = $this->tc->execute($req);
+		dump($resp);exit;
+	}
+
+
+	/**
+	 * 获取 dg 搜索
+	 * @return [type] [description]
+	 */
+	public function dgMaterialGet($arr)
+	{
+		$req = new \TbkDgMaterialOptionalRequest();
+		// $req->setStartDsr("10");
+		$req->setPageSize($arr['size']);
+		$req->setPageNo($arr['no']);
+		// $req->setPlatform("1");
+		// $req->setEndTkRate("1234");
+		// $req->setStartTkRate("1234");
+		// $req->setEndPrice("10");
+		// $req->setStartPrice("10");
+		// $req->setIsOverseas("false");
+		// $req->setIsTmall("false");
+		// $req->setSort("tk_rate_des");
+		// $req->setItemloc("xx");
+		$req->setCat($arr['cate']);
+		$req->setQ($arr['search']);
+		$req->setHasCoupon($arr['has_coupon']);
+		$req->setIp($arr['ip']);
+		$req->setAdzoneId(ADZONEID);
+		// $req->setNeedFreeShipment("true");
+		// $req->setNeedPrepay("true");
+		// $req->setIncludePayRate30("true");
+		// $req->setIncludeGoodRate("true");
+		// $req->setIncludeRfdRate("true");
+		// $req->setNpxLevel("2");
+		$resp = $this->tc->execute($req);
+		return $resp;
+
+	}
+	
 }
 
 ?>

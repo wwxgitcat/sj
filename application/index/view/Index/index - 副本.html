@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="__default__/style.css"/>
 <script src="__js__/jquery.min.js"></script>
 <script src="__js__/amazeui.min.js"></script>
-<script src="__js__/index.js"></script>
 
 </head>
 
@@ -52,6 +51,12 @@
         <li>
           <img src="__default__/bing-1.jpg">
         </li>
+        <li>
+          <img src="__default__/bing-1.jpg">
+        </li>
+        <li>
+          <img src="__default__/bing-1.jpg">
+        </li>
       </ul>
     </div>
 
@@ -69,24 +74,25 @@
         </div>
     </div>
     <div class="am-input-group">
-        <input type="text" class="am-form-field am-radius" >
+        <input type="text" class="am-form-field am-radius">
         <span class="am-input-group-btn">
           <button class="am-btn am-radius" type="button"><span class="am-icon-search"></span></button>
         </span>
     </div>
-
     <div class="am-cf am-g">
     	<ul class="am-avg-sm-2 my-shop-product-list">
+          {foreach name ="data" item="vo"}      
         	<li>
             	<div class="am-panel am-panel-default">
                     <div class="am-panel-bd">
-                    	<img class="am-img-responsive" src="{}" />
-                        <h3><a href="{}">xxx</a></h3>
+                    	<img class="am-img-responsive" src="{$vo.pict_url}" />
+                        <!-- <h3><a href=__URL__/kouling?url="{$vo.item_url}">{$vo['shop_title']}</a></h3> -->
+                        <h3><a href="{$vo.item_url}">{$vo['shop_title']}</a></h3>
                         <div>
-                            <!-- <span class="list-product-price-span">￥]}</span> -->
-                            <span class="list-product-price-span">折扣价￥]}</span>
-                            <span class="list-product-commission-span">销量<br/></span>
-                            <!-- <span class="list-product-sorce-span">省份<br/></span> -->
+                            <!-- <span class="list-product-price-span">￥{$vo['reserve_price']}</span> -->
+                            <span class="list-product-price-span">折扣价￥{$vo['coupon_info']}</span>
+                            <span class="list-product-commission-span">销量<br/>{$vo.volume}</span>
+                            <!-- <span class="list-product-sorce-span">省份<br/>{$vo.provcity}</span> -->
                         </div>
                         <hr data-am-widget="divider" style="" class="am-divider am-divider-default am-cf"/>
                         <ol class="am-avg-sm-3 product-list-share">
@@ -97,9 +103,12 @@
                     </div>
                 </div>
             </li>
+            {/foreach}
         </ul>
+        <button class="am-footer-miscs">
+          查询更多...
+        </button>
     </div>
-        <button class="am-btn am-btn-origin am-radius am-btn-block btn-more">查询更多</button>
     
     
     <footer data-am-widget="footer" class="am-footer am-footer-default" data-am-footer="{  }">

@@ -98,7 +98,6 @@ class Tb
 		$content = "【taobao号】，copy info".$res;
 		$req->setPasswordContent($content);
 		$resp = $this->tc->execute($req);
-		dump($resp);
 		return $resp;
 	}
 
@@ -108,14 +107,14 @@ class Tb
 		// dump($arr['native_url']);
 		// dump($arr['url']);exit;
 		$req = new \TbkTpwdCreateRequest();
-		$req->setUserId("123");
-		$req->setText("长度大于5个字符");
+		// $req->setUserId("123");
+		$req->setText("欢迎点击查询");
 		// $req->setUrl("https://uland.taobao.com/");
 		$req->setUrl($arr['url']);
 		// $req->setLogo("https://uland.taobao.com/");
 		$req->setExt("{}");
 		$resp = $this->tc->execute($req);
-		dump($resp);exit;
+		return $resp;
 	}
 	
 	// 关联查询
@@ -127,7 +126,7 @@ class Tb
 		$req->setCount("20");
 		$req->setPlatform("1");
 		$resp = $this->tc->execute($req);
-		dump($resp);exit;
+		return $resp;
 	}
 
 	// 商品详情
@@ -138,7 +137,7 @@ class Tb
 		$req->setPlatform("1");
 		$req->setIp("11.22.33.43");
 		$resp = $this->tc->execute($req);
-		dump($resp);exit;
+		return $resp;
 	}
 
 	// 商铺查询
@@ -161,7 +160,7 @@ class Tb
 		$req->setPageNo("1");
 		$req->setPageSize("20");
 		$resp = $this->tc->execute($req);
-		dump($resp);exit;
+		return $resp;
 	}
 
 	/**
@@ -177,7 +176,7 @@ class Tb
 		$req->setCount("20");
 		$req->setPlatform("1");
 		$resp = $this->tc->execute($req);
-		dump($resp);exit;
+		return $resp;
 	}
 
 	// 淘宝联盟 招商活动
@@ -188,7 +187,7 @@ class Tb
 		$req->setPageSize("20");
 		$req->setFields("event_id,event_title,start_time,end_time");
 		$resp = $this->tc->execute($req);
-		dump($resp);exit;
+		return $resp;
 	}
 
 	/**
@@ -207,7 +206,7 @@ class Tb
 		$req->setPageNo("1");
 		$req->setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url,seller_id,volume,nick,shop_title,zk_final_price_wap,event_start_time,event_end_time,tk_rate,type,status");
 		$resp = $this->tc->execute($req);
-		dump($resp);exit;
+		return $resp;
 	}
 
 	/**
@@ -226,22 +225,21 @@ class Tb
 		$req->setPageNo("2");
 		$req->setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url,seller_id,volume,nick,shop_title,zk_final_price_wap,event_start_time,event_end_time,tk_rate,status,type");
 		$resp = $this->tc->execute($req);
-		dump($resp);exit;
+		return $resp;
 	}
 
 	// 淘抢购
-	public function tqg()
+	public function tqg($arr)
 	{
 		$req = new \TbkJuTqgGetRequest();
-		// 推广位id（推广位申请方式：http://club.alimama.com/read.php?spm=0.0.0.0.npQdST&tid=6306396&ds=1&page=1&toread=1）
-		$req->setAdzoneId("123");
+		$req->setAdzoneId("61794260");
 		$req->setFields("click_url,pic_url,reserve_price,zk_final_price,total_amount,sold_num,title,category_name,start_time,end_time");
-		$req->setStartTime("2016-08-09 09:00:00");  //最早开团时间
-		$req->setEndTime("2016-08-09 16:00:00");
-		$req->setPageNo("1");
-		$req->setPageSize("40");
+		$req->setStartTime($arr['start_time']); 
+		$req->setEndTime($arr['end_time']);
+		$req->setPageNo($arr['no']);
+		$req->setPageSize($arr['size']);
 		$resp = $this->tc->execute($req);
-		dump($resp);exit;
+		return $resp;
 	}
 
 	/**
@@ -262,7 +260,7 @@ class Tb
 		// $param_top_item_query->word="test";
 		$req->setParamTopItemQuery(json_encode($param_top_item_query));
 		$resp = $this->tc->execute($req);
-		dump($resp);exit;
+		return $resp;
 	}
 
 	/**
@@ -280,7 +278,7 @@ class Tb
 		// $req->setPageNo("10"); 
 		// dump($req);exit;
 		$resp = $this->tc->execute($req);
-		dump($resp);exit;
+		return $resp;
 	}
 
 	public function flowInfo()
@@ -325,7 +323,7 @@ class Tb
 		// $req->setNeedFreeShipment("true");
 		// $req->setNpxLevel("2");
 		$resp = $this->tc->execute($req);
-		dump($resp);exit;
+		return $resp;
 	}
 
 

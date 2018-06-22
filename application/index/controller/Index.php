@@ -19,6 +19,7 @@ class Index extends Controller
      //    $res = $res['results']['n_tbk_item'];
      //    dump($res);exit;
      //    $this->assign("data",$res);
+     //    
         return view("index");
         $arr = [
             'size' => input("size",1),
@@ -34,6 +35,13 @@ class Index extends Controller
         $res = json_decode($res,true);
         $this->assign("data",$res['status']['result_list']['map_data']);
         return view("index");
+    }
+
+    public function tqg()
+    {
+        $tb = new Tb();
+        $res = $tb->tqg();
+        dd($res);
     }
 
     public function detail()
@@ -64,14 +72,21 @@ class Index extends Controller
     public function kouling()
     {
         $url = input("url");
-
         $tb = new Tb();
         $res = $tb->getKou($url);
-        dump($res);exit;
-        $res = $res['results']['n_tbk_item'];
-        $this->assign("data",$res);
-        return view("index");
-    	return view("cate");
+    }
+
+    /**
+     * 生成
+     * @return [type] [description]
+     */
+    public function createKl()
+    {
+        $url = input("url");
+        $tb = new Tb();
+        $arr['url'] = $url;
+        $res = $tb->createKou($arr);
+        return $res;
     }
 
     /**
@@ -83,13 +98,14 @@ class Index extends Controller
         $arr = [
             'size' => input("size",1),
             'no' => input("no",10),
-            'search' => input("search",""),
+            'search' => input("search","小米"),
             'cate' => "16,18",
             'has_coupon' => "true",
             'ip' => "127.0.0.1",
         ];
         $tb = new Tb();
         $res = $tb->dgMaterialGet($arr);
+        dd($res);
         $res = _arr_json($res);
         $res = json_decode($res,true);
         $this->assign("data",$res['status']['result_list']['map_data']);

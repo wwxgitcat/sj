@@ -82,12 +82,13 @@ class Tb
 		$resp = $this->tc->execute($req);
 		$res = json_encode($resp);
 		$res =  json_decode($res,true);
+		return $res;
 
-		$res =   $this->getResKou($res['model']);
+		// $res =   $this->getResKou($res['model']);
 
-		$res = json_encode($res);
-		$res =  json_decode($res,true);
-		return $this->createKou($res);
+		// $res = json_encode($res);
+		// $res =  json_decode($res,true);
+		// return $this->createKou($res);
 	}
 
 
@@ -199,7 +200,6 @@ class Tb
 		$req = new \TbkUatmEventItemGetRequest();
 		$req->setPlatform("1");
 		$req->setPageSize("20");
-		//推广位id，需要在淘宝联盟后台创建；且属于appkey对应的备案媒体id（siteid），如何获取adzoneid，请参考：http://club.alimama.com/read-htm-tid-6333967.html?spm=0.0.0.0.msZnx5
 		$req->setAdzoneId("34567");
 		$req->setUnid("3456");
 		$req->setEventId("123456"); //招商活动id
@@ -219,7 +219,7 @@ class Tb
 		$req = new \TbkUatmFavoritesItemGetRequest();
 		$req->setPlatform("1");
 		$req->setPageSize("20");
-		$req->setAdzoneId("34567"); //推广位id，需要在淘宝联盟后台创建；且属于appkey备案的媒体id（siteid），如何获取adzoneid，请参考，http://club.alimama.com/read-htm-tid-6333967.html?spm=0.0.0.0.msZnx5
+		$req->setAdzoneId("34567");
 		$req->setUnid("3456");
 		$req->setFavoritesId("10010");
 		$req->setPageNo("2");

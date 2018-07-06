@@ -1,6 +1,5 @@
 <?php
 include("./Tx.php");
-
 header('Content-type:text');
 define("TOKEN", "boboit");
 $wechatObj = new wechatCallbackapiTest();
@@ -26,9 +25,9 @@ class wechatCallbackapiTest
     // kouling
     public function createKou($arr='')
     {
-        include "TopSdk.php";
-        include "/top/request/TbkTpwdCreateRequest.php";
-        $c = new TopClient;
+       include "TopSdk.php";
+       include "./top/request/TbkTpwdCreateRequest.php";
+        $c = new TopClient();
         $c->appkey = '23456114';
         $c->secretKey = '930a58600e04bda37ec2e19d49a82923';
         // $req = new TradeVoucherUploadRequest;

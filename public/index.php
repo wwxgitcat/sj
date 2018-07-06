@@ -13,9 +13,10 @@
 
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../application/');
-
+// define('BIND_MODULE','index');
 
 define('CONF_PATH', __DIR__ . '/../conf/');
 // define('EXTEND_PATH', '../extend/');
 // 加载框架引导文件
 require __DIR__ . '/../framework/start.php';
+// require __DIR__ . '/../thinkphp/start.php';

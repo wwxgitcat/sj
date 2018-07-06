@@ -23,7 +23,13 @@ include __DIR__."/top/request/TbkTpwdCreateRequest.php";
 include __DIR__."/top/request/WirelessShareTpwdCreateRequest.php";
 include __DIR__."/top/domain/GenPwdIsvParamDto.php";
 include __DIR__."/top/request/TbkUatmFavoritesItemGetRequest.php";
-include __DIR__."/top/request/TbkScMaterialOptionalRequest.php";
+// include __DIR__."/top/request/TbkScMaterialOptionalRequest.php";
+
+include __DIR__."/top/request/TbkSpreadGetRequest.php";
+include __DIR__."/top/domain/TbkSpreadRequest.php";
+
+include __DIR__."/top/request/WirelessShareTpwdQueryRequest.php";
+include __DIR__."/top/request/TbkDgMaterialOptionalRequest.php";
 
 class Tb 
 {
@@ -41,13 +47,13 @@ class Tb
 	 * 显示商品
 	 * @return [type] [description]
 	 */
-	function products($fz,$cate_id,$city_id,$no,$size)
+	function products($fz,$cate_id = "",$city_id ="",$no ="" ,$size ="")
 	{
 		$req = new \TbkItemGetRequest();
 		$req->setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url,seller_id,volume,nick");
 		$req->setQ($fz);
-		$req->setCat($cate_id);
-		$req->setItemloc($city_id);
+		// $req->setCat($cate_id);
+		// $req->setItemloc($city_id);
 
 		// $req->setSort("tk_rate_des");
 		// $req->setIsTmall("false");
@@ -58,26 +64,27 @@ class Tb
 		// $req->setEndTkRate("123");
 
 		$req->setPlatform(1);  //链接形式：1：PC，2：无线，默认：１
-		$req->setPageNo($no);
-		$req->setPageSize($size);
+		// $req->setPageNo($no);
+		// $req->setPageSize($size);
 		$resp = $this->tc->execute($req);
 		$res = json_encode($resp);
-		return json_decode($res,true);
+		$a =  json_decode($res,true);
+		return $a;
 	}
 
 	/**
 	 * kouling
 	 * @return [type] [description]
 	 */
-	public function getKou($url){
+	public function getKou($url,$text = "恭喜抢到优惠"){
 		$req = new \WirelessShareTpwdCreateRequest();
 		$tpwd_param = new \GenPwdIsvParamDto();
 		// $tpwd_param->ext="{\"xx\":\"xx\"}";
 		// $tpwd_param->logo="http://m.taobao.com/xxx.jpg";
 		$tpwd_param->url=$url;
 		// $tpwd_param->url="http://m.taobao.com";
-		$tpwd_param->text="test1";
-		// $tpwd_param->user_id="24234234234";
+		$tpwd_param->text=$text;
+		$tpwd_param->user_id = "26826841";
 		$req->setTpwdParam(json_encode($tpwd_param));
 		$resp = $this->tc->execute($req);
 		$res = json_encode($resp);
@@ -296,7 +303,7 @@ class Tb
 
 	}
 
-	public function materialSearch()
+	public function materialSearch($q)
 	{
 		$req = new \TbkScMaterialOptionalRequest();
 		// $req->setStartDsr("10");
@@ -311,7 +318,7 @@ class Tb
 		// $req->setIsTmall("false");
 		// $req->setSort("tk_rate_des");
 		// $req->setCat("16,18");
-		$req->setQ("xiaomi");
+		$req->setQ($q);
 		$req->setAdzoneId("61794260");
 		$req->setSiteId("16390990");
 		$req->setHasCoupon("false");
@@ -322,7 +329,7 @@ class Tb
 		// $req->setNeedPrepay("true");
 		// $req->setNeedFreeShipment("true");
 		// $req->setNpxLevel("2");
-		$resp = $this->tc->execute($req);
+		$resp = $this->tc->execute($req,"61018018c16022bce35d959b3c71e1a9e9158b533ef531c442304472");
 		return $resp;
 	}
 
@@ -335,8 +342,8 @@ class Tb
 	{
 		$req = new \TbkDgMaterialOptionalRequest();
 		// $req->setStartDsr("10");
-		$req->setPageSize($arr['size']);
-		$req->setPageNo($arr['no']);
+		// $req->setPageSize($arr['size']);
+		// $req->setPageNo($arr['no']);
 		// $req->setPlatform("1");
 		// $req->setEndTkRate("1234");
 		// $req->setStartTkRate("1234");
@@ -346,10 +353,11 @@ class Tb
 		// $req->setIsTmall("false");
 		// $req->setSort("tk_rate_des");
 		// $req->setItemloc("xx");
-		$req->setCat($arr['cate']);
+		// $req->setCat($arr['cate']);
 		$req->setQ($arr['search']);
 		$req->setHasCoupon($arr['has_coupon']);
-		$req->setIp($arr['ip']);
+
+		// $req->setIp($arr['ip']);
 		$req->setAdzoneId(ADZONEID);
 		// $req->setNeedFreeShipment("true");
 		// $req->setNeedPrepay("true");
@@ -361,6 +369,17 @@ class Tb
 		return $resp;
 
 	}
+
+	public function speradGet($url)
+	{
+		$req = new \TbkSpreadGetRequest();
+		$requests = new \TbkSpreadRequest();
+		$requests->url = $url;
+		$req->setRequests(json_encode($requests));
+		$resp = $this->tc->execute($req);
+		return $resp;
+	}
+
 	
 }
 

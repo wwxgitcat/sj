@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-dns-prefetch-control" content="on"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <link rel="apple-touch-icon" href="/touch-icon-iphone.png"/>
+        <link href="/favicon.ico" rel="shortcut icon" />
+        <link href="/favicon.ico" rel="icon">
+        <link href="/touch-icon-iphone.png" rel="Bookmark" />
+
+        <title>xxxx</title>
+        <meta name="keywords" content="xxxx"/>
+        <meta name="description" content="xxxx"/>
+        <link href="__app_css__/swiper.min.css" rel="stylesheet">
+        <link href="__app_css__/wap_common.css" rel="stylesheet">
+        <link href="__app_css__/swiper-3.4.2.min.css" rel="stylesheet">
+        <!-- 皮肤 S-->
+                <!-- 皮肤 E-->
+        <!-- 视频 E -->
+        <link href="__app_css__/wap_search.css" rel="stylesheet"/>
+
+        <script src="__app_js__/jquery.2.0.min.js"></script>
+        <script src="__app_js__/swiper.jquery.min.js"></script>
+        <script src="__app_js__/lazyload.js"></script>
+       
+    </head>
+    <body  data-appid="499115" data-in="1">
+        <div class="main-title clearfix theme-bg-color-1" style="height: 44px">
+            <a href="__URL__/index" class="main-back" style="margin-left: 0"></a>
+
+            
+
+            <div class="mysrc" style="margin-left: 30px;" onClick="$('.search-pop').show()">
+                <form action="/index.php?r=l&kw=%E5%A5%B3%E8%A3%85%E5%A4%8F" method="get">
+                    <button class="search_submit background" style="left: 0;"></button>
+                    <div   class="search_area">夏季新衣</div>
+                </form>
+            </div>
+
+            
+
+        </div>
+        <!-- 主界面具体展示内容 -->
+        <a id="ui_class" href="javascript:;" ui-class data-url="/index.php" ></a>
+<script type="text/javascript">
+    $(window).load(function(){
+        $("#ui_class").click();
+    });    
+    $(".main-title .main-back").attr("href","/index.php?r=index/wap");
+</script>        <!--搜索弹窗-->
+        <div class="search-pop">
+            
+    <div class="main-title clearfix theme-bg-color-1">
+        <input type="hidden" name="wsw-status" value="0">
+            <div class="search-tab">
+                <a href="/index.php?r=index/classify&s_type=0" data-stype="0" class='my-sub-src cur center'>搜券</a>
+
+                            </div>
+
+        <a href="javascript:;" class="close-src"></a>
+        <form action="/index.php?r=index/index" method="GET" id="my-search" >
+            <div class="search  fl" style="background-color: #fff;border-radius: 20px;width: 70%">
+                <input type="hidden" name="r" value="index/search">
+                <input type="hidden" name="s_type" value="0">
+                <input type="text"  autocomplete="off"
+                       placeholder="夏季新衣" value=""
+                       name="kw" id="search_area"
+                       class="old-search search_area" />
+
+                <span class="src-close-btn"></span>
+
+            </div>
+
+                <button class="wap-srcBtn search_submit search-in background" type="submit" >搜 索</button>
+
+        </form>
+    </div>
+
+    <script>
+        $(".main-title .search-tab a").on("click",function(){
+            $(".main-title .search-tab a").removeClass('cur');
+            $(this).addClass('cur');
+            $("input[name='s_type']").val($(this).data("stype"));
+            var url = $(this).attr("href")+"&kws="+$("#my-search input[name='kw']").val();
+            window.location.href=url;
+            return false;
+        });
+        var kw_url = "/index.php?r=l&kw=%E5%A5%B3%E8%A3%85%E5%A4%8F";
+        $('#my-search').on('submit',function(){
+            if($(this).find("input[name='kw']").val()=="" && kw_url != ""){
+                window.location.href=kw_url;
+                return false;
+            }
+        });
+
+    </script>
+
+    <script>
+        if($('.my-sub-src ').length>1){
+
+        }else{
+            $('#my-search .search').css('width','70%');
+            $('.my-sub-src').removeClass('cur');
+            $('.my-sub-src').css('opacity','1');
+        }
+    </script>
+
+
+    
+<script>
+    $('.sub_str_srarch').on('click',function(){
+
+        var v= $(this).data('t');
+        $('.s_type_value').val(v);
+        $('#my-search').submit();
+
+    });
+
+
+    if($('.my-sub-src ').length>1){
+    }else{
+        $('.my-sub-src').removeClass('cur')
+    }
+
+    $('.old-search.search_area').focus(function(){
+//        $(".search-pop").css({"position":"absolute","top":"0"});
+        $(".search-pop .main-title").css("position","absolute");
+        $(".search-pop .search-cat").css({"position":"absolute","height":$(window).height()});
+    });
+    $('.old-search.search_area').focusout(function(){
+//            $(".search-pop").css("position","fixed");
+        $(".search-pop .main-title").css("position","fixed");
+        $(".search-pop .search-cat").css("position","fixed");
+    });
+
+
+//判断是否首页搜索框
+    $(function(){
+        if($('.wap-src-cat').length>0){
+            $(".close-src").on('click',function(){
+                $(".search-pop").hide();
+                $('.search-land').hide();
+                $(".search-pop").find(".search_area").val('');
+                $('body').unbind('touchmove')
+                $('body').css('overflow-y','scroll');
+
+            });
+        }else{
+        }
+
+    })
+</script>
+
+
+
+            <div class="search-cat wap-src-cat">
+                <div class="search-cat-tit">
+                    <span class="up-menu">热门搜索</span>
+                </div>
+                <div class="src-content">
+                    <ul class="main-src">
+                                            </ul>
+                    <div style="clear: both"></div>
+                </div>
+
+                <div class="search-cat-tit ">
+                    <span class="up-menu">商品分类</span>
+                </div>
+                <div class="menu-content">
+                    <ul class="main-cat">
+                                                        <li class="cat-item mm-nolistview">
+                                    <a data-catid="1" href="/index.php?r=index/cat&cid=1&u=499115">女装</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="3" href="/index.php?r=index/cat&cid=3&u=499115">美妆</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="6" href="/index.php?r=index/cat&cid=6&u=499115">美食</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="7" href="/index.php?r=index/cat&cid=7&u=499115">文娱车品</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="13" href="/index.php?r=index/cat&cid=13&u=499115">户外运动</a>
+                                </li>
+                                                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="snowBody"></div>
+
+        <ul class="search-land"></ul>
+        <!--搜索弹窗-->
+
+        <!--搜索弹窗-->
+        <script src="__app_js__/jsized.snow.min.js"></script>
+        <div class="toTop">&#xe6a4;</div>
+        <div style="display: none;">
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261605092'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261605092' type='text/javascript'%3E%3C/script%3E"));</script>        </div>
+        <script src="__app_js__/cms_common.js"></script>
+        <script src="__app_js__/cms_ggw_wap.js"></script>
+
+    </body>
+</html>

@@ -154,19 +154,19 @@ class Tb
 		$req = new \TbkShopGetRequest();
 		$req->setFields("user_id,shop_title,shop_type,seller_nick,pict_url,shop_url","coupon_end_time","coupon_info");
 		$req->setQ($q);  //查询词
-		$req->setSort("commission_rate_des");
-		$req->setIsTmall("false");
-		$req->setStartCredit("1");
-		$req->setEndCredit("20");
-		$req->setStartCommissionRate("2000");
-		$req->setEndCommissionRate("123");
-		$req->setStartTotalAction("1");
-		$req->setEndTotalAction("100");
-		$req->setStartAuctionCount("123");
-		$req->setEndAuctionCount("200");
-		$req->setPlatform("1");
-		$req->setPageNo("1");
-		$req->setPageSize("20");
+		// $req->setSort("commission_rate_des");
+		// $req->setIsTmall("false");
+		// $req->setStartCredit("1");
+		// $req->setEndCredit("20");
+		// $req->setStartCommissionRate("2000");
+		// $req->setEndCommissionRate("123");
+		// $req->setStartTotalAction("1");
+		// $req->setEndTotalAction("100");
+		// $req->setStartAuctionCount("123");
+		// $req->setEndAuctionCount("200");
+		// $req->setPlatform("1");
+		// $req->setPageNo("1");
+		// $req->setPageSize("20");
 		$resp = $this->tc->execute($req);
 		return $resp;
 	}
@@ -351,7 +351,7 @@ class Tb
 		// $req->setStartPrice("10");
 		// $req->setIsOverseas("false");
 		// $req->setIsTmall("false");
-		// $req->setSort("tk_rate_des");
+		$req->setSort("total_sales");
 		// $req->setItemloc("xx");
 		// $req->setCat($arr['cate']);
 		$req->setQ($arr['search']);
@@ -380,6 +380,12 @@ class Tb
 		return $resp;
 	}
 
+	public function getCate()
+	{
+		$req = new \AlibabaWholesaleCategoryGetRequest();
+		$resp = $this->tc->execute($req);
+		return $resp;
+	}
 	
 }
 

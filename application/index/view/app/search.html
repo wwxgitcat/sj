@@ -1,0 +1,820 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-dns-prefetch-control" content="on"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>xxxx</title>
+        <meta name="keywords" content="xxxx"/>
+        <meta name="description" content="xxxx"/>
+        <script src="../js/jquery.min.js"></script>
+        <link href="../css/wap_common.css" rel="stylesheet"/>
+        <link href="../css/wap_search.css" rel="stylesheet"/>
+        <!-- 皮肤 S-->
+                <!-- 皮肤 E-->
+        <!-- 视频 S -->
+        <link href="../css/wap-video.css" rel="stylesheet">
+        <!-- 视频 E -->
+        <script src="../js/lazyload.js" ></script>
+        <script>
+            //统计
+            var coutData =[{"page":"0","event_name":"index_search","page_event":"click","page_class":"#search button","is_data":"","is_posting_events":"0","is_num":"0","is_param":""},{"page":"0","event_name":"app_download_hover","page_event":"mouseenter","page_class":".app_download","is_data":"","is_posting_events":"0","is_num":"0","is_param":""},{"page":"0","event_name":"record_number","page_event":"click","page_class":".miitbeian","is_data":"","is_posting_events":"0","is_num":"0","is_param":""},{"page":"0","event_name":"service_bottom","page_event":"click","page_class":".footer_service","is_data":"","is_posting_events":"0","is_num":"0","is_param":""},{"page":"0","event_name":"service_top","page_event":"click","page_class":".header_service","is_data":"","is_posting_events":"0","is_num":"0","is_param":""},{"page":"0","event_name":"logo","page_event":"click","page_class":"#header .header_logo","is_data":"","is_posting_events":"0","is_num":"0","is_param":""},{"page":"0","event_name":"home_set","page_event":"click","page_class":".set_home","is_data":"","is_posting_events":"0","is_num":"0","is_param":""},{"page":"0","event_name":"collect_set","page_event":"click","page_class":".add_favorite","is_data":"","is_posting_events":"0","is_num":"0","is_param":""},{"page":"0","event_name":"index_banner ","page_event":"click","page_class":".swiper-slide a","is_data":"gid","is_posting_events":"0","is_num":"0","is_param":""},{"page":"0","event_name":"index_left_cid","page_event":"click","page_class":"#banner .list li a","is_data":"catid","is_posting_events":"0","is_num":"0","is_param":""},{"page":"0","event_name":"index_qlist_goods","page_event":"click","page_class":".live .goods-list li a","is_data":"gid","is_posting_events":"0","is_num":"0","is_param":""},{"page":"0","event_name":"index_search_fixed","page_event":"click","page_class":".floatNav .srcBtn","is_data":"","is_posting_events":"0","is_num":"0","is_param":""}];
+        </script>
+    </head>
+
+        <style>
+        .main-title .search {
+            background-color: #fff;
+            border-radius: 15px;
+            margin-left: 12%;
+            width: 65%;
+            /*box-shadow: 0 1px 1px 1px #c86259;*/
+        }
+        /*.main-title .wap-srcBtn{ margin-right: 0; }*/
+
+            .search-pop{
+                display: none;
+            }
+
+            .src-content {
+                margin: 20px 0 30px;
+            }
+            .toTop {
+                position: fixed;
+                right: 30px;
+                bottom: 65px;
+                font-family: iconfont;
+                display: none;
+                font-size: 37px;
+                width: 50px;
+                height: 50px;
+                background-color: #fff;
+                border: 1px solid #CCCCCC;
+                border-radius: 50px;
+                text-align: center;
+                z-index: 11;
+                line-height: 50px;
+                color: #8c8c8c;
+            }
+
+            .main-src .src-item a {
+                font-size: 13px;
+                color: #333;
+            }
+            .src-item span{
+                position: absolute;font-size: 12px;background-color: #FE4A65;right: -22px;
+                top:-10px;color: #fff;border-radius: 12px;padding: 0 5px;line-height: 16px;
+            }
+
+            .search-cat .menu-content .main-cat li a {
+                display: block;
+                color: #333;
+                font-size: 14px;
+            }
+            .search-land{
+                display: none;
+                position: fixed;width: 100%;height: 100%;background-color: #fff;z-index: 9999;top: 90px;overflow: hidden;
+            }
+            .search-land li{
+                width: 90%;  border-bottom: 1px solid #f7f7f7;font-size: 13px;padding:9px 0;margin: 0 auto;
+            }
+            .search-land li a{
+                color: #232326;width: 100%;
+                display: inline-block;
+            }
+            .search .src-close-btn{
+                display: none;
+                position: absolute;right:0px;top: 0;
+                background-image: url("../images/cms-img.png");
+                background-position: -107px 7px;
+                background-repeat: no-repeat;
+                background-size: 287px 800px;
+                width: 28px;
+                height: 28px;
+                z-index: 9999;
+
+            }
+
+        </style>
+    <body  data-appid="499115" data-in="1">
+        <div class="search-pop" style="display:block;">
+        
+    <style>
+        .search-land{
+            top: 60px !important;
+        }
+    </style>
+    <div class="main-title clearfix theme-bg-color-1" style="height: 60px">
+        <input type="hidden" name="wsw-status" value="0">
+
+        <a href="javascript:history.go(-1);" class="close-src" style="margin-top: 10px"></a>
+
+        <form action="/index.php?r=index/index" method="GET" id="my-search" style="margin-top: 10px">
+            <div class="search  fl" style="background-color: #fff;border-radius: 20px;margin-left: 12%;">
+
+                <input type="hidden" name="r" value="index/search">
+                <input type="hidden" class="s_type_value" name="s_type" value="0">
+                <input type="text"  autocomplete="off"
+                       placeholder="好东西 搜出来" value="『小米"                       name="kw" id="search_area"
+                       class="old-search search_area" />
+
+                <span class="src-close-btn"></span>
+            </div>
+
+            <div class="search-tab1" style="font-size: 13px">
+                <a href="javascript:void(0);" data-t="0" class='sub_str_srarch cur center'  >搜券 </a>
+                            </div>
+            <button class="wap-srcBtn search_submit search-in background" type="submit" style="display: none" >搜 索</button>
+
+        </form>
+    </div>
+
+
+    <script>
+        if($('.sub_str_srarch ').length>1){
+            $('#my-search .search').css('width','51%');
+
+        }else{
+            $('#my-search .search').css('width','60%');
+            $('.sub_str_srarch').removeClass('cur');
+            $('.sub_str_srarch').css({'float':'right','marginRight':'2%','opacity':'1'});
+        }
+    </script>
+
+
+<script>
+    $('.sub_str_srarch').on('click',function(){
+
+        var v= $(this).data('t');
+        $('.s_type_value').val(v);
+        $('#my-search').submit();
+
+    });
+
+
+    if($('.my-sub-src ').length>1){
+    }else{
+        $('.my-sub-src').removeClass('cur')
+    }
+
+    $('.old-search.search_area').focus(function(){
+//        $(".search-pop").css({"position":"absolute","top":"0"});
+        $(".search-pop .main-title").css("position","absolute");
+        $(".search-pop .search-cat").css({"position":"absolute","height":$(window).height()});
+    });
+    $('.old-search.search_area').focusout(function(){
+//            $(".search-pop").css("position","fixed");
+        $(".search-pop .main-title").css("position","fixed");
+        $(".search-pop .search-cat").css("position","fixed");
+    });
+
+
+//判断是否首页搜索框
+    $(function(){
+        if($('.wap-src-cat').length>0){
+            $(".close-src").on('click',function(){
+                $(".search-pop").hide();
+                $('.search-land').hide();
+                $(".search-pop").find(".search_area").val('');
+                $('body').unbind('touchmove')
+                $('body').css('overflow-y','scroll');
+
+            });
+        }else{
+        }
+
+    })
+</script>
+
+
+
+    </div>
+        <nav id="detail-top-menu">
+            <div class="arrow"></div>
+            <div class="mask" id="menu-mask2"></div>
+            <div class="detail-menu-content">
+                <ul class="main-detail">
+                    <li>
+                        <a href="/index.php?r=index/wap">首页</a>
+                    </li>
+                    <li>
+                        <a href="/index.php?r=index/classify">搜索/分类</a>
+                    </li>
+                    <li>
+                        <a href="/index.php?r=index/customService">客服</a>
+                    </li>
+                    <li>
+                        <a href="/index.php?r=index/feedback">我要反馈</a>
+                    </li>
+                    <!--<li>-->
+                    <!--<a href="#">分享</a>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </nav>
+        <!-- 主界面具体展示内容 -->
+
+        <style>
+    .scrollable{
+        position: absolute;
+        top: 115px;
+        left: 0;
+        right: 0;
+        bottom:0;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        -webkit-box-flex: 1;
+        background-color: #faf5f6;
+    }
+</style>
+<div class="order-nav" style="margin-top: 60px">
+    <ul>
+        <li class="theme-border-bottom-color-1 cur">
+            <span><a class="theme-color-1" href="/index.php?r=index/search&kw=%E3%80%8E%E5%B0%8F%E7%B1%B3&px=t&u=499115">人气</a></span>
+        </li>
+        <li class="">
+            <span><a  href="/index.php?r=index/search&kw=%E3%80%8E%E5%B0%8F%E7%B1%B3&px=latest&u=499115">最新</a></span>
+        </li>
+        <li class="">
+            <span><a  href="/index.php?r=index/search&kw=%E3%80%8E%E5%B0%8F%E7%B1%B3&px=sell&u=499115">销量</a></span>
+        </li>
+        <li class="">
+                <span><a  href="/index.php?r=index/search&kw=%E3%80%8E%E5%B0%8F%E7%B1%B3&px=price&u=499115">价格
+                                    <span class="price-ico   "></span>
+                        <!--                    ico-up 升序   ico-down降序-->
+                    </a></span>
+        </li>
+    </ul>
+</div>
+
+
+    <div class="scrollable">
+        <div class="goods-list" data-page="2">
+                            <div class="goods-item">
+                    <a  data-gid="13383584" href="/index.php?r=p/d&id=13383584&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>15</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2klknxbyi8kjjy0faxxbaivxa_!!2270447226.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13383584" href="/index.php?r=p/d&id=13383584&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">买一送四  金属炮筒重低音手机电脑通用耳机</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>14.8</span></span><span class="price_yj">￥29.8</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">50461</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13390339" href="/index.php?r=p/d&id=13390339&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>2</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2mwimdr1ybunjsszexxablfxa_!!800341499.png_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13390339" href="/index.php?r=p/d&id=13390339&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">小米全系列钢化膜2片装【送神器+后膜】</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>1.9</span></span><span class="price_yj">￥3.9</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">149450</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13364551" href="/index.php?r=p/d&id=13364551&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>5</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2jcs0wb5ybunjsspoxxbenfxa_!!834765748.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13364551" href="/index.php?r=p/d&id=13364551&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">小米全系列钢化膜2片装（送神器+后膜）</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>3.2</span></span><span class="price_yj">￥8.2</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">93462</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13392138" href="/index.php?r=p/d&id=13392138&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>3</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2n54ih1kaukjjszfzxxxdqfxa_!!2456967342.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13392138" href="/index.php?r=p/d&id=13392138&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">2条装安卓手机高速快充数据线</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>3.8</span></span><span class="price_yj">￥6.8</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">123608</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13395484" href="/index.php?r=p/d&id=13395484&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>10</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2uoehix1ybunjy1zcxxbncxxa_!!898146183.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13395484" href="/index.php?r=p/d&id=13395484&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">小米8钢化膜6/6x/5x/8se水凝膜</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>12</span></span><span class="price_yj">￥22</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">3590</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13400734" href="/index.php?r=p/d&id=13400734&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>3</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2cstthoowbknjszkzxxxfwfxa_!!3310687634.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13400734" href="/index.php?r=p/d&id=13400734&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">小米全系列钢化膜全屏两片装</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>9.6</span></span><span class="price_yj">￥12.6</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">17245</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13312541" href="/index.php?r=p/d&id=13312541&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>10</b></span>                                                                        <img src="../picture/tb2kaj7gyznbknjszfrxxarlfxa_!!1835075675.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13312541" href="/index.php?r=p/d&id=13312541&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">超薄迷你通用移动电源充电宝</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>39</span></span><span class="price_yj">￥49</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">34698</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13393342" href="/index.php?r=p/d&id=13393342&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>50</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2.qrmbbarbknjszflxxc_dvxa_!!2097118490.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13393342" href="/index.php?r=p/d&id=13393342&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">【科满仕】苹果系列无线智能充电器</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>28</span></span><span class="price_yj">￥78</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">5026</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13405284" href="/index.php?r=p/d&id=13405284&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>30</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2uzszcgswbunjssrbxxa0mvxa_!!2620477979.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13405284" href="/index.php?r=p/d&id=13405284&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">iPhoneX苹果8P无线充电器原装正品</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>68</span></span><span class="price_yj">￥98</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">102</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13241743" href="/index.php?r=p/d&id=13241743&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>10</b></span>                                                                        <img src="../picture/tb2alo8khznbknjszfrxxarlfxa_!!112594324.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13241743" href="/index.php?r=p/d&id=13241743&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">【拍照神器】硕图迷你通用手机自拍杆</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>6.5</span></span><span class="price_yj">￥16.5</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">57055</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13387154" href="/index.php?r=p/d&id=13387154&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>10</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2idy5ucuybunksmryxxca3pxa_!!672880126.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13387154" href="/index.php?r=p/d&id=13387154&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">小米8/6系列系手机列钢化水凝膜</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>11.7</span></span><span class="price_yj">￥21.7</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">250</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13395442" href="/index.php?r=p/d&id=13395442&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>10</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2j.5hkxhi8kjjy1zbxxaxdpxa_!!2103613063.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13395442" href="/index.php?r=p/d&id=13395442&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">小米max2钢化膜mix2/2s水凝</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>12</span></span><span class="price_yj">￥22</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">1436</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13394077" href="/index.php?r=p/d&id=13394077&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>10</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/o1cn011hugqojixlaxg1n_!!2243080818.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13394077" href="/index.php?r=p/d&id=13394077&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">Type-C纯铜充电数据线1.2m</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>7.8</span></span><span class="price_yj">￥17.8</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">616</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13353659" href="/index.php?r=p/d&id=13353659&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>10</b></span>                                                                        <img src="../picture/tb2fm3cs3xlpufjy0foxxa.lxxa_!!2451941673.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13353659" href="/index.php?r=p/d&id=13353659&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">iphone原裝入耳式重低音运动耳机</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>5.8</span></span><span class="price_yj">￥15.8</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">131717</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13327850" href="/index.php?r=p/d&id=13327850&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>5</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2axkgk9cqbknjszfgxxx_kxxa_!!3295788988.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13327850" href="/index.php?r=p/d&id=13327850&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">小米8后置摄像头钢化保护膜三片装</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>14.9</span></span><span class="price_yj">￥19.9</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">44</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13377956" href="/index.php?r=p/d&id=13377956&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>15</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2rozsclusmejjsszexxckgpxa_!!1065005030.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13377956" href="/index.php?r=p/d&id=13377956&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">D3重低音通用耳机+手机指环</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>12.8</span></span><span class="price_yj">￥27.8</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">1217</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13395967" href="/index.php?r=p/d&id=13395967&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>10</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2zsfncmvd8kjjssplxxaiefxa_!!2560968130.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13395967" href="/index.php?r=p/d&id=13395967&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">山西小米5斤武乡沁县小黄米</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>26.8</span></span><span class="price_yj">￥36.8</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">134</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13355577" href="/index.php?r=p/d&id=13355577&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>3</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2uvtydkswbunjsszdxxbespxa_!!3427845930.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13355577" href="/index.php?r=p/d&id=13355577&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">松下纽扣电池十粒通用小米圆形1.5V</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>5.9</span></span><span class="price_yj">￥8.9</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">4949</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13392005" href="/index.php?r=p/d&id=13392005&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>50</b></span>                        <span class="today-wrapper"><b>NEW</b></span>                                                <img src="../picture/tb2h9fmjrsmbknjszfsxxaxsvxa_!!3971060571.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13392005" href="/index.php?r=p/d&id=13392005&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">直白吹风机新款不伤发电吹风筒小米生态链</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>149</span></span><span class="price_yj">￥199</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">1345</span></div>                    </div>
+                </div>
+                            <div class="goods-item">
+                    <a  data-gid="13285339" href="/index.php?r=p/d&id=13285339&u=499115" class="img">
+                                                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>30</b></span>                                                                        <img src="../picture/tb2he9ya..iykjjsspdxxbb_pxa_!!3012913363.jpg_310x310.jpg" alt="">
+                    </a>
+                    <a  data-gid="13285339" href="/index.php?r=p/d&id=13285339&u=499115" class="title">
+                        <div class="text" style=" color:#777777;">【WRZ】X6重低音挂耳式运动耳机</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥<span>9.7</span></span><span class="price_yj">￥39.7</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">103540</span></div>                    </div>
+                </div>
+                    </div>
+                    <div  class="pullup-goods">
+                <div class="label">商品加载中...</div>
+            </div>
+            </div>
+
+
+
+
+
+<script language="javascript">
+    function ok(){}
+    if(window.history.state){
+        $('.goods-list').html(window.history.state.list);
+        var page = window.history.state.page;
+    }else{
+        var page = 2;
+    }
+
+    var isFinish = false;
+    var isLoading = false;
+    var $pullUp = null;
+    var needLoadMore = false;
+
+    var maxScrollY = 0;
+    var windowHeight = 0;
+    var kw = '『小米';
+    var px = 't';
+    $(document).ready(function () {
+        maxScrollY = $('.scrollable').height();
+        windowHeight = $(window).height();
+        $(window).on('resize', function () {
+            windowHeight = $(window).height();
+        });
+//        $(window).scroll(function (e) {
+        $('.scrollable').scroll(function (e) {
+            if (isFinish || isLoading) {
+                return;
+            }
+//            var y = $(document).scrollTop();
+            var y = parseInt($('.scrollable').scrollTop());
+
+
+            maxScrollY = parseInt($('.scrollable .goods-list').height());
+//            maxScrollY = $(document).height();
+            windowHeight = $(window).height();
+            if (Math.abs(maxScrollY - windowHeight - y) > 200) {
+                return;
+            }
+
+            var $wrapper = $(this);
+            if (!$pullUp) {
+                $pullUp = $wrapper.find('.pullup-goods');
+            }
+            var data = null;
+
+
+            getData($wrapper, data, 1);
+
+        });
+
+        function getData($wrapper, data, direction) {
+            if (isFinish) {
+                return;
+            }
+            isLoading = true;
+            if (!$pullUp) {
+                $pullUp = $wrapper.find('.pullup-goods');
+            }
+            var labelTag = $($pullUp).find('.label');
+            var tPaht= "/index.php?r=index/ajaxSearch";
+            $.ajax(tPaht,{
+                data: {r: 'index/ajaxSearch', page: page, kw: kw,px:px},
+                dataType: 'json',
+                type: 'post',
+                error: function (xhr, type, errorThrown) {
+                    getData($wrapper, data, direction);
+                },
+                success: function (result, status, xhr) {
+                    needLoadMore = false;
+                    if (result.status == 0) {
+                        if(result.data.pageStatus === false){
+                            isLoading = false;
+                            $('.pullup-goods .label').html('没有更多商品啦');
+                            isFinish = true;
+                        }
+
+                        $('.goods-list').append(result.data.content);
+                        $("img.lazy").lazyload({container:$('.scrollable ')});
+                        aClick();
+                        maxScrollY = $(document).find('.scrollable .goods-list').height();
+//                        maxScrollY = $(document).height();
+                        isLoading = false;
+                        page++;
+                        $('.goods-list').attr('data-page',page);
+                    } else {
+//                        maxScrollY = $(document).find('.scrollable .goods-list').height();
+                        maxScrollY = $(document).height();
+                        isLoading = false;
+                        $('.pullup-goods .label').html('没有更多商品啦');
+                        isFinish = true;
+                    }
+                }
+            });
+        }
+    });
+</script>
+        <div class="toTop">&#xe6a4;</div>
+        <div style="display: none;">
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261605092'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261605092' type='text/javascript'%3E%3C/script%3E"));</script>        </div>
+        <script src="../js/cms_common.js"></script>
+
+        
+
+        <!--搜索弹窗-->
+
+        <div class="search-pop">
+            <div class="search-cat">
+
+                <div class="search-cat-tit">
+                    <span class="up-menu">热门搜索</span>
+                </div>
+                <div class="src-content">
+                    <ul class="main-src">
+                                            </ul>
+                    <div style="clear: both"></div>
+                </div>
+
+                <div class="search-cat-tit ">
+                    <span class="up-menu">商品分类</span>
+                </div>
+                <div class="menu-content">
+                    <ul class="main-cat">
+                                                        <li class="cat-item mm-nolistview">
+                                    <a data-catid="1" href="/index.php?r=index/cat&cid=1&u=499115">女装</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="3" href="/index.php?r=index/cat&cid=3&u=499115">美妆</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="6" href="/index.php?r=index/cat&cid=6&u=499115">美食</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="9" href="/index.php?r=index/cat&cid=9&u=499115">男装</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="4" href="/index.php?r=index/cat&cid=4&u=499115">居家日用</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="5" href="/index.php?r=index/cat&cid=5&u=499115">鞋品</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="11" href="/index.php?r=index/cat&cid=11&u=499115">箱包</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="14" href="/index.php?r=index/cat&cid=14&u=499115">家装家纺</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="8" href="/index.php?r=index/cat&cid=8&u=499115">数码家电</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="2" href="/index.php?r=index/cat&cid=2&u=499115">母婴</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="12" href="/index.php?r=index/cat&cid=12&u=499115">配饰</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="10" href="/index.php?r=index/cat&cid=10&u=499115">内衣</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="7" href="/index.php?r=index/cat&cid=7&u=499115">文娱车品</a>
+                                </li>
+                                                                <li class="cat-item ">
+                                    <a data-catid="13" href="/index.php?r=index/cat&cid=13&u=499115">户外运动</a>
+                                </li>
+                                                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <ul class="search-land" >
+
+        </ul>
+        <style>
+            .search .src-close-btn{
+                right: 0!important;
+            }
+        </style>
+        <!--搜索弹窗-->
+    </body>
+
+
+    <!--搜索弹窗-->
+    <script>
+//        判断搜索或是更多 改变搜索框长度
+        // $('.search').width(Math.ceil($('.main-title').width())-85);
+//        $('body').on('click',function () {
+//            var myInput = document.getElementById('search_area');
+//            if(myInput==document.activeElement){
+//                $('.search_submit').show();
+//                $('#cat-action-menu').hide();
+//                $('.search').width(Math.ceil($('.main-title').width())-Math.ceil($('.main-back').width())-85);
+//            }else{
+//                $('.search_submit').hide();
+//                $('#cat-action-menu').show();
+//                $('.search').width(Math.ceil($('.main-title').width())-Math.ceil($('.main-back').width())-65);
+//            }
+//        });
+
+
+
+
+
+        $(".old-search.search_area").on('click',function(){
+//            $('#cat-action-menu').hide();
+//            $('.search_submit').show();
+            if($('.old-search.search_area').val()!==''){
+                $('body').bind('touchmove',function(e){
+                    e.preventDefault();
+                });
+            }
+
+
+            $('body').css('overflow-y','hidden');
+            $('.search-kw').show();
+            var _this =$(this);
+            var _value = _this.val();
+            if(_value==''){
+                $(document).on('touchmove',function(e){
+                });
+                $(".search_area").focus();
+            }else{
+                $(document).on('touchmove',function(e){
+                });
+                $.fn.setCursorPosition = function(position){
+                    if(this.lengh == 0) return this;
+                    return $(this).setSelection(position, position);
+                }
+
+                $.fn.setSelection = function(selectionStart, selectionEnd) {
+                    if(this.lengh == 0) return this;
+                    input = this[0];
+
+                    if (input.createTextRange) {
+                        var range = input.createTextRange();
+                        range.collapse(true);
+                        range.moveEnd('character', selectionEnd);
+                        range.moveStart('character', selectionStart);
+                        range.select();
+                    } else if (input.setSelectionRange) {
+                        input.focus();
+                        input.setSelectionRange(selectionStart, selectionEnd);
+                    }
+
+                    return this;
+                }
+
+                $.fn.focusEnd = function(){
+                    this.setCursorPosition(this.val().length);
+                }
+
+                $(".search_area").focusEnd();
+                $(".search_area").val(_value);
+                $('.search-land').show();
+                $(".search-land").find('li').remove();
+
+                var content = "";
+                    content = _value.replace(/\s+/g, "");
+                if(content.length == 0){
+                    $('.search .src-close-btn').hide();
+                    $('.search-land').hide();
+                }else{
+                    $('.search .src-close-btn').show();
+                    $('.search-land').show();
+                }
+
+                $.ajax({
+                    url: "/index.php?r=index/kwarr",
+                    type: 'get',
+                    dataType: 'json',
+                    data: {
+                        kw: _value
+                    },
+                    success: function (data) {
+                        if(data.status=='1'){
+                            $(".search-land").find('li').remove();
+                            for(var i=0;i< data.data.length;i++){
+                                var str  = "<li>"+data.data[i]+"</li>";
+                                $(".search-land").append(str);
+                            }
+                        }
+                    }
+                })
+            }
+
+        });
+
+
+        $(".close-src").on('click',function(){
+             window.history.go(-1);
+            $(".search-pop").css("position","fixed");
+            $(".search-pop .main-title").css("position","fixed");
+            $(".search-pop .search-cat").css("position","fixed");
+            $('.search-land').hide();
+            $(".search_area").val('');
+            $('body').unbind('touchmove')
+        });
+
+
+        var bind_name = 'input';
+        if (navigator.userAgent.indexOf("MSIE") != -1){
+            bind_name = 'propertychange';
+        }
+        $(".search_area").bind(bind_name, function(){
+
+            const _value = $(this).val();
+            var content = "";
+            content = _value.replace(/\s+/g, "");
+            if(content.length == 0){
+                $('.search .src-close-btn').hide();
+                $('.search-land').hide();
+            }else{
+                $('.search .src-close-btn').show();
+                $('.search-land').show();
+            }
+
+            $(".search-land").find('li').remove();
+
+            $.ajax({
+                url: "/index.php?r=index/kwarr",
+                type: 'get',
+                dataType: 'json',
+                data: {
+                    kw: _value
+                },
+                success: function (data) {
+                    if(data.status=='1'){
+                        $(".search-land").find('li').remove();
+                        for(var i=0;i< data.data.length;i++){
+                            var str  = "<li>"+data.data[i]+"</li>";
+                            $(".search-land").append(str);
+                        }
+                    }
+                }
+            })
+
+        });
+
+        $('.search .src-close-btn').click(function(){
+            $('body').unbind('touchmove')
+            $('body').css('overflow-y','scroll');
+            $(this).hide();
+            $('.search-land').hide();
+            $(".search_area").val('');
+            $('.search-kw').hide();
+//             $('.search-pop').show();
+            $(this).siblings('.search_area').focus();
+        });
+
+        $(".search-land").on('click','li',function(){
+            $(".search_area").val($(this).text());
+            $('.wap-srcBtn.search_submit').trigger('click');
+        });
+
+    </script>
+</html>

@@ -110,6 +110,13 @@ return [
     	'__css__' =>"/index/css",
     	'__js__' =>"/index/js",
     	'__default__' =>"/index/default",
+
+        // app
+        '__app_css__' =>"/app/css",
+        '__app_js__' =>"/app/js",
+        '__app_img__' =>"/app/images",
+        '__app_picture__' =>"/app/picture",
+        '__app_default__' =>"/app/default",
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',

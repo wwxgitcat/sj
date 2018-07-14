@@ -1,0 +1,473 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-dns-prefetch-control" content="on"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>xxxx</title>
+    <meta name="keywords" content="xxxx"/>
+    <meta name="description" content="xxxx"/>
+    <meta itemprop="image" content="https://img.alicdn.com/imgextra/i1/174623670/TB2GOzoApmWBuNjSspdXXbugXXa_!!174623670.jpg_50x50.jpg" />
+    <script src="__app_js__/jquery.min.js"></script>
+    <link href="__app_css__/wap_common.css" rel="stylesheet">
+    <link href="__app_css__/wapshow.css" rel="stylesheet"/>
+    
+    <!-- 皮肤 S-->
+        <!-- 皮肤 E-->
+</head>
+<body data-appid="981726" data-in="1">
+<div class="main-title clearfix">
+    <a href="__URL__/index" class="main-back"></a>
+<!--    <div class="menu-detail">商品详情</div>-->
+    <a class="mui-action-menu main-more" href="javascript:void(0)" id="cat-action-menu"></a>
+</div>
+<nav id="detail-top-menu">
+    <div class="arrow"></div>
+    <div class="mask" id="menu-mask2"></div>
+    <div class="detail-menu-content">
+        <ul class="main-detail">
+            <li>
+                <a href="/index.php?r=index/wap">首页</a>
+            </li>
+            <li>
+                <a href="/index.php?r=index/classify">搜索/分类</a>
+            </li>
+            <li>
+                <a href="/index.php?r=index/customService">客服</a>
+            </li>
+            <li>
+                <a href="/index.php?r=index/feedback&id=13390654">商品反馈</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="#">分享</a>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</nav>
+<!-- 主界面具体展示内容 -->
+<script>
+    var image_url = '/index.php?r=p/image&id=13390654&title=%E3%80%90%E5%85%A8%E7%BD%91NO.1%E3%80%91%E7%92%90%E7%91%B6%E7%BA%B3%E7%B1%B3%E5%96%B7%E9%9B%BE%E8%A1%A5%E6%B0%B4%E4%BB%AA&quan_jine=10.00&quanhou_jia=8.5&pic=https%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F174623670%2FTB2GOzoApmWBuNjSspdXXbugXXa_%21%21174623670.jpg';
+</script>
+<script src="__app_js__/clipboard.min.js"></script>
+<script src="__app_js__/jquery.base64.js"></script>
+<script src="__app_js__/swiper-3.4.2.jquery.min.js"></script>
+<link rel="stylesheet" href="__app_css__/swiper-3.4.2.min.css">
+<style>
+    .pop-link{
+        position: fixed;height: 30px;
+        top:50px;left:2%;
+        font-size: 0.9em;
+        line-height: 30px;
+        color: #fff;
+        z-index: 9999;
+    }
+    .pop-link em{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        background-color: #000;
+        z-index: -9
+    }
+    .pop-link img{
+        display: inline-block;
+        width: auto;
+        height: 88%;
+        position: relative;
+        top: 2px;
+        left: 2px;
+        border-radius: 1px;
+    }
+    .pop-link p{
+        display: inline-block;
+        position: relative;
+        top: -7px;
+        height: 27px;
+        line-height: 27px;
+        margin-left: 2px;
+        padding: 0 10px;
+        font-size: 0.7em;
+    }
+    .pop-link span{
+        color: #FFC151;
+        margin:0 5px 0 10px;
+    }
+    .wap-feedback{
+        margin-bottom:20px;background-color: #FFEFC3;color: #333;height: 30px;font-size: 12px;
+        line-height: 30px;padding:0  10px 0 16px
+    }
+    .wap-feedback p{
+        width: 80%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;float: left;
+    }
+    .wap-feedback span{
+        color: #4470c1;
+    }
+    .swiper-container .swiper-wrapper.img div{
+        background-size: cover;
+    }
+    .swiper-container .num{
+        position: absolute;bottom: 10px;right: 10px;width: 32px;height: 32px;border-radius: 50%;
+         text-align: center;z-index: 99;
+
+    }
+    .swiper-container .num i{
+        position: absolute;width: 100%;height: 100%;opacity: 0.4;background-color: #000;border-radius: 50%;left: 0;
+        top:0;
+    }
+    .swiper-container .num span{
+        color: #fff;position: relative;z-index: 99; font-size: 12px;
+        font-family: 'PingFangSC-Light',Arial;line-height: 32px;
+    }
+</style>
+
+<!--大家都在买开始-->
+<!--大家都在买结束-->
+
+<div style="overflow: hidden;width: 0;height: 0;">
+    <img  src="../picture/tb2gozoapmwbunjsspdxxbugxxa_!!174623670.jpg_310x310.jpg">
+    <img  src="../picture/tb2gozoapmwbunjsspdxxbugxxa_!!174623670.jpg_50x50.jpg">
+</div>
+
+    <div class="detail-wrapper img">
+        
+            <a href="https://uland.taobao.com/coupon/edetail?e=Lnqc2%2FkgSlIGQASttHIRqRpqp56nPcZEbDf8ntxEXZsZ9saflVoSQMGibGM6Nlx1743hpG77BOsATh9fxoCW9r9fwBwwUiql6DF%2F2MLpJMq9GaVAvC2u%2FW7PVn13QcLN%2FfsIcQx%2BbXWtaBFQAslSvQ%3D%3D&traceId=0bfa321315315089057323264e&activityId=ee1657021e6e42888ace5a8f49e03bf2"
+               class="tb_app">
+
+                <div class="swiper-container">
+                    <div class="swiper-wrapper img">
+                                                            <div data-gid="13390654" class="swiper-slide" style="background-image:url('../images/tb2gozoapmwbunjsspdxxbugxxa_!!174623670.jpg')"></div>
+                                                            <div data-gid="13390654" class="swiper-slide" style="background-image:url('../images/tb2hacxywswbunjssrbxxa0mvxa_!!2509311421.jpg')"></div>
+                                                            <div data-gid="13390654" class="swiper-slide" style="background-image:url('../images/tb240ygbaywbunjy0fpxxassxxa_!!2509311421.jpg')"></div>
+                                                            <div data-gid="13390654" class="swiper-slide" style="background-image:url('../images/tb2vjjpcntybenjy1xdxxxxyvxa_!!2509311421.jpg')"></div>
+                                                            <div data-gid="13390654" class="swiper-slide" style="background-image:url('../images/tb2mcsifrwrbknjszpcxxxpapxa_!!2509311421.jpg')"></div>
+                                                            <div data-gid="13390654" class="swiper-slide" style="background-image:url('../images/tb2onu3ror1benjy0fmxxb0wvxa_!!2509311421.jpg')"></div>
+                                            </div>
+                                            <div class="num"><i></i><span class="idx"></span><span>/</span><span class="tot"></span></div>
+                                    </div>
+
+                <!--2淘抢购 3聚划算-->
+                                <!-- 618-->
+                                <!-- 618-->
+                <div data-gid="13390654" class="title-wrapper clearfix">
+
+                    <!-- 咚咚抢 -->
+                                            <span class="tmall"></span>
+                                        【全网NO.1】璐瑶纳米喷雾补水仪                </div>
+            </a>
+
+        
+                    <div class="recommend-wrapper">
+                <div class="text theme-color-4">
+                    <span>小编推荐：</span>【4.8高评分，30万+销量】纳米大喷雾，深层渗透，30ml大水箱持续补水，带充电宝功能，多彩颜色，随心所选，更有升级款可加牛奶，爽肤水使用，因为刚好遇见你，需要补水才美！                </div>
+            </div>
+        
+                <div class="goods-jq clearfix">
+            <div class="goods-price fl"><b><i>￥</i>8.5</b>券后价</div>
+            <div class="goods-quan shoufa-quan fl"><span>券</span><b><i>￥</i>10</b></div>
+            <div class="goods-num fr"><i></i><b>275176</b> 人已买</div>
+        </div>
+
+        <div class="goods-tag">
+                            <span>天猫</span>
+            
+                            <span>新品</span>
+            
+                            <span>包邮</span>
+            
+            
+        </div>
+    </div>
+
+
+
+
+
+
+<div class="test-area"></div>
+
+<div class="tuwen-tkl">
+    <div class="pic-detail">
+        <div class="pic-detail-btn" data-goodsid="565138209869">
+            <span class="pic-detail-btn-span">查看图文详情 <i>点击展开<em></em></i></span>
+        </div>
+        <div class="pic-detail-show"></div>
+        <span class="loadding-lab">加载中，请稍后……</span>
+    </div>
+</div>
+
+
+
+
+<script></script>
+<div class="pos-box clearfix" id="pos-box-id">
+    <div class="pos-title">
+        <p><i></i>精品推荐<b></b></p>
+    </div>
+    <div class="ads-list" data-page="0">
+
+                        <div class="goods-item">
+                    <a data-transition="slide" href="/index.php?r=p/d&id=13343068" class="img ui-link"
+                       data-gid="13343068"
+                       data-ci="526729"
+                       data-in="1"
+                       data-uid="981726"
+                       data-cn="33"
+                       data-position="CMS"
+                    >
+
+                        <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>5</b></span>                                                                        <img src="../picture/tb2k4gegm0jpufjy0flxxc0bpxa_!!3172426766.jpg_310x310.jpg">
+                    </a>
+                    <a data-transition="slide" href="/index.php?r=p/d&id=13343068" class="title ui-link"
+                       data-gid="13343068"
+                       data-ci="526729"
+                       data-in="1"
+                       data-uid="981726"
+                       data-cn="33"
+                       data-position="CMS"
+                    >
+                        <div class="text" style="color:#777777;">
+                            妙美手提式穿绳收口垃圾袋                        </div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥11.8</span>
+                        <span class="text">券后</span>
+
+                        <div class="sold-wrapper">
+                            <span class="sold-num">34442</span>
+                            <span class="text">人已买</span>
+                        </div>
+                    </div>
+                </div>
+                                
+                                <div class="goods-item">
+                    <a data-transition="slide" href="/index.php?r=p/d&id=13264129" class="img ui-link"
+                       data-gid="13264129"
+                       data-ci="524983"
+                       data-in="1"
+                       data-uid="981726"
+                       data-cn="33"
+                       data-position="CMS"
+                    >
+
+                        <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>15</b></span>                                                                        <img src="../picture/tb2olqvdy9ybunjy0fgxxcxcxxa_!!121813946.jpg_310x310.jpg">
+                    </a>
+                    <a data-transition="slide" href="/index.php?r=p/d&id=13264129" class="title ui-link"
+                       data-gid="13264129"
+                       data-ci="524983"
+                       data-in="1"
+                       data-uid="981726"
+                       data-cn="33"
+                       data-position="CMS"
+                    >
+                        <div class="text" style="color:#777777;">
+                            veet/薇婷敏感肌脱毛膏                        </div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="price">￥14.9</span>
+                        <span class="text">券后</span>
+
+                        <div class="sold-wrapper">
+                            <span class="sold-num">248</span>
+                            <span class="text">人已买</span>
+                        </div>
+                    </div>
+                </div>
+                
+    </div>
+</div>
+
+<!-- 新版底部样式s -->
+<div class="buy-wrapper-new">
+    <div class="buy-cent">
+        <div class="buy-wrapper-box">
+            <div class="cent">
+                <a href="javascript:;" onclick="$canvasImage.getCodeShow($('#codeText').val());" ><i class="buy_svg_code" ></i>通过口令分享</a>
+                <a href="javascript:;" onclick="$canvasImage.getCanvasImage()"  ><i class="buy_svg_img" ></i>通过图片分享</a>
+                <textarea style="display: none;" id="codeText">【全网NO.1】璐瑶纳米喷雾补水仪
+【原价】18.5元
+【券后】8.5元
+【复制此信息打开手机淘宝即可查看并下单】￥TsUmbaKVBcv￥
+【必买理由】【4.8高评分，30万+销量】纳米大喷雾，深层渗透，30ml大水箱持续补水，带充电宝功能，多彩颜色，随心所选，更有升级款可加牛奶，爽肤水使用，因为刚好遇见你，需要补水才美！</textarea>
+                <em></em>
+            </div>
+        </div>
+
+        <ul class="row-s">
+            <li class="col-sm-2">
+                <a href="javascript:;"  class="buy-text">
+                    <i class="buy-icon"></i>
+                    分享
+                </a>
+            </li>
+
+            
+                    <li class="col-sm-4">
+
+                                                        <a href="javascript:;" class="buy-btn buy-btn-secondary" onclick="$canvasImage.getCodeShopping({code:'￥TsUmbaKVBcv￥',pic:'https://img.alicdn.com/imgextra/i1/174623670/TB2GOzoApmWBuNjSspdXXbugXXa_!!174623670.jpg_480x480.jpg' });">
+                        
+                            淘口令
+                            </a>
+                    </li>
+
+                
+                <li class="col-sm-4">
+
+                    
+                        <a href="https://uland.taobao.com/coupon/edetail?e=Lnqc2%2FkgSlIGQASttHIRqRpqp56nPcZEbDf8ntxEXZsZ9saflVoSQMGibGM6Nlx1743hpG77BOsATh9fxoCW9r9fwBwwUiql6DF%2F2MLpJMq9GaVAvC2u%2FW7PVn13QcLN%2FfsIcQx%2BbXWtaBFQAslSvQ%3D%3D&traceId=0bfa321315315089057323264e&activityId=ee1657021e6e42888ace5a8f49e03bf2" id="getGoodsLink" class="buy-btn buy-btn-primary tb_app">
+                        
+                    
+                        领券购买                        </a>
+                </li>
+
+
+
+
+            
+
+
+
+
+
+
+        </ul>
+    </div>
+
+</div>
+<div class="buy-wrapper-new-bg"></div>
+<!-- 新版底部样式e -->
+<script type="text/javascript">
+
+        var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
+    if (ua.match(/WeiBo/i) == "weibo" || ua.match(/Weibo/i) == "weibo") {
+        $("#getGoodsLink").attr('weixin','').removeAttr('href').removeClass('tb_app');
+    }
+    
+
+    $(".buy-wrapper-new ul li:eq(0),.buy-wrapper-new-bg").click(function(event) {
+        /* Act on the event */
+
+        $(".buy-wrapper-new,.buy-wrapper-new-bg").toggleClass("active");
+        if($(".buy-wrapper-new").hasClass("active")){
+            $(".buy-wrapper-new-bg").fadeIn(300);
+        }else{
+            $(".buy-wrapper-new-bg").fadeOut(300);
+        } 
+
+    });
+</script>
+
+    <!--下载地址s-->
+    
+        <!--下载地址e-->
+
+
+<div class="donw-app"><a href="http://apphtml.ffquan.com/index.php?r=index/down&app_id=499115"><img src="../picture/banner_download.png" alt="" width="100%"></a></div><div class="wap-feedback"><p>声明：本网站是一家中立的导购网站，网站中的商品信息均来自于互联网。如商品信息不同，可能是商品信息未及时更新引起，所有商品信息请以淘宝/天猫店铺内为准。网站提醒用户，购买商品前注意谨慎核实相关信息。如用户对商品/服务的标题 、价格、详情等任何信息有任何疑问的，请在购买前与商品所属店铺经营者沟通确认。网站存在海量商品信息，如用户发现商品中有任何违法/违规信息，请</p>
+
+<span>[点击查看]</span>
+</div>
+
+
+<style>
+
+    .pop-up{
+        position: fixed;z-index: 9999;width: 100%;height: 100%;
+        top:0;  left:0;display: none;
+    }
+    .pop-mzsm{
+        width: 60%;border-radius: 6px ;margin: 0 auto;font-size: 12px;overflow: hidden;position: fixed;left: 20%;
+        top:20%;z-index: 99999;
+    }
+    .pop-span{
+        position: absolute;width: 100%;height: 100%;background-color: #000;opacity: 0.7;
+    }
+    .pop-mzsm p{
+        text-align: justify;line-height: 18px;color: #333;background-color: #fff;padding: 7%;
+    }
+    .pop-mzsm button{
+        width: 50%;height:36px;background-color: #E53563 ;color: #fff;
+    }
+    .fk_atonce{
+        float: right;border-left: 1px solid #fff
+    }
+</style>
+<div class="pop-up">
+    <span class="pop-span"></span>
+    <div class="pop-mzsm">
+        <p>声明：本网站是一家中立的导购网站，网站中的商品信息均来自于互联网。如商品信息不同，可能是商品信息未及时更新引起，所有商品信息请以淘宝/天猫店铺内为准。网站提醒用户，购买商品前注意谨慎核实相关信息。如用户对商品/服务的标题 、价格、详情等任何信息有任何疑问的，请在购买前与商品所属店铺经营者沟通确认。网站存在海量商品信息，如用户发现商品中有任何违法/违规信息，请点击下方立即反馈进行反馈</p>
+        <button class="close_btn">好的</button>
+        <button class="fk_atonce">立即反馈</button>
+    </div>
+</div>
+
+
+<script>
+    $('.wap-feedback span').on('click',function(){
+        $('.pop-up').show();
+    });
+    $('.pop-mzsm .close_btn').on('click',function(){
+        $('.pop-up').hide();
+    });
+    $('.pop-mzsm .fk_atonce').on('click',function(){
+        window.location.href="/index.php?r=index/feedback&id=13390654";
+    })
+</script>
+<section class="more-couppon-goods">
+    <a href="__URL__" >返回首页</a>
+</section>
+
+<script src="__app_js__/layer.js"></script>
+<script type="text/javascript" src="__app_js__/html2canvas.js"></script>
+
+<script src="__app_js__/cms_detail.js"></script>
+
+<script src="__app_js__/clipboard.min.js"></script>
+
+
+<script>
+
+    $(function(){
+        $('.ads-list .goods-item a').on('click', function(){
+            xctj("tid=xc-dtk-cms-"+$(this).data('uid'), "at=crs","ds=wap","in="+$(this).data('in'),"ec=click","gid="+$(this).data('gid'),"ci="+$(this).data('ci'),"cn="+$(this).data('cn'));
+        });
+        if(Clipboard.isSupported()==true){
+            $('.not_clip').hide();
+            $('.spt_clip').show();
+        }else{
+            $('.not_clip').show();
+            $('.spt_clip').hide();
+        }
+
+        if($('#tkl_val').val()==''){
+
+        }else{
+
+        }
+    });
+
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction: 'horizontal',
+        onSlideChangeEnd: function(swiper){
+            $('.swiper-container .num .idx').text(swiper.realIndex+1)
+        }
+    });
+
+    $('.swiper-wrapper').css('height',$('.swiper-wrapper.img div').width());
+    window.onresize =function(){
+        $('.swiper-wrapper').css('height',$('.swiper-wrapper.img div').width());
+    };
+
+    $('.swiper-container .num .idx').text(1);
+    $('.swiper-container .num .tot').text($('.swiper-container .swiper-wrapper .swiper-slide').length)
+
+</script>
+
+<div class="toTop">&#xe6a4;</div>
+<div style="display: none;">
+    </div>
+<script src="__app_js__/cms_common.js"></script>
+</body>
+</html>

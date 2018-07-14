@@ -5,9 +5,46 @@ use \think\Controller;
 
 class Index extends Controller
 {
-    public function hello()
+    public function index()
     {
+        return view("app/index");
     }
+
+    public function nine()
+    {
+        return view("app/9");
+    }
+
+    public function qg()
+    {
+        return view("app/qg");
+    }
+
+    public function jingxuan()
+    {
+        return view("app/jingxuan");
+    }
+
+    public function app_search()
+    {
+        return view("app/search");
+    }
+
+    public function app_detail()
+    {
+        return view("app/detail");
+    }
+
+    public function cate_list()
+    {
+        return view("app/cate_list");
+    }
+
+    public function cate()
+    {
+        return view("app/cate");
+    }
+
 
     public function search()
     {
@@ -41,7 +78,7 @@ class Index extends Controller
         $res = input::get("arr");
     }
 
-    public function index()
+    public function index2()
     {
         $arr = [
             'size' => input("size",1),
@@ -150,11 +187,16 @@ class Index extends Controller
     public function jx()
     {
         $tb = new Tb();
-        $content = input("content","€o5XZ0AdLuu5€");
+        $res = $tb->getCate();
+        dd($res);
+
+        $content = input("content","述€TgGr0AvTxY9€后");
+        
         // if(empty($content)){
         //     return "未知数据";
         // }
         $res = $tb->getResKou($content);
+        // $res = $tb->shopList($res->content);
         dump($res);
         $price = $res->price;
 
@@ -162,8 +204,11 @@ class Index extends Controller
             return "tb为解析到数据";
         }
 
+        // $a = Index::post("search");
+        // dd($a);
         $arr = [
             'search' => input("search",$res->content),
+            // 'search' => input("search",""),
             'has_coupon' => "true",
         ];
 

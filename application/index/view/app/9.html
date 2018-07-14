@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-dns-prefetch-control" content="on"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>xxxx</title>
+        <meta name="keywords" content="xxxx"/>
+        <meta name="description" content="xxxx"/>
+        <script src="__app_js__/jquery.min.js" ></script>
+        <link href="__app_css__/wap_common.css" rel="stylesheet">
+        <link rel="Bookmark" href="touch-icon-iphone.png" />
+
+        <!-- 皮肤 S-->
+                <!-- 皮肤 E-->
+
+        <!-- 视频 S -->
+        <link href="__app_css__/wap-video.css" rel="stylesheet">
+        <!-- 视频 E -->
+        <link href="__app_css__/wapcat.css" rel="stylesheet"/>
+        <script src="__app_js__/lazyload.js" ></script>
+    </head>
+    <style>
+        html {
+            background: none
+        }
+    </style>
+    <body  data-appid="499115" data-in="1">
+        <div class="main-title clearfix theme-bg-color-1">
+            <a href="__URL__" class="main-back"></a>
+            <div class="menu-detail">
+                <span class="if_618">9.9包邮</span>
+            </div>
+            <a class="mui-action-menu main-more" href="javascript:void(0)" id="cat-action-menu"></a>
+        </div>
+        <nav id="detail-top-menu">
+            <div class="arrow"></div>
+            <div class="mask" id="menu-mask2"></div>
+            <div class="detail-menu-content">
+                <ul class="main-detail">
+                    <li>
+                        <a href="/index.php?r=index/wap">首页</a>
+                    </li>
+                    <li>
+                        <a href="/index.php?r=index/classify">搜索/分类</a>
+                    </li>
+                    <li>
+                        <a href="/index.php?r=index/customService">客服</a>
+                    </li>
+                    <li>
+                        <a href="/index.php?r=index/feedback">我要反馈</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- 主界面具体展示内容 -->
+        <style>
+        .goods-list {
+        margin-top: 50px;
+        }
+</style>
+
+<script src="__app_js__/lazyload.js"></script>
+
+<div class="goods-list" data-page="2">
+            <div class="goods-item">
+            <a data-gid="13407881" href="/index.php?r=p/d&id=13407881&u=499115" class="img" >
+                <!--618-->
+                                <!--618-->
+                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>3</b></span>                <span class="today-wrapper"><b>NEW</b></span>                                <img class="lazy" src="../picture/tb2h_xglbmwbunksndvxxcsapxa_!!378776132.jpg_310x310.jpg" alt="">
+            </a>
+            <a data-gid="13407881" href="/index.php?r=p/d&id=13407881&u=499115" class="title" >
+                <div class="text">瓷茶杯创意手绘釉下彩杯子品茗杯杯具</div>
+            </a>
+            <div class="price-wrapper">
+                <span class="price">￥<span>9</span></span><span class="price_yj">￥12</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">410</span></div>            </div>
+        </div>
+            
+            <div class="goods-item">
+            <a data-gid="13406523" href="/index.php?r=p/d&id=13406523&u=499115" class="img" >
+                <!--618-->
+                                <!--618-->
+                <span class="coupon-wrapper  theme-bg-color-1">券 <i>￥</i><b>5</b></span>                <span class="today-wrapper"><b>NEW</b></span>                                <img class="lazy" src="../picture/tb2za.efgvd8kjjssplxxaiefxa_!!1778977824.jpg_310x310.jpg" alt="">
+            </a>
+            <a data-gid="13406523" href="/index.php?r=p/d&id=13406523&u=499115" class="title" >
+                <div class="text">宝宝辅食工具剪研磨器机婴幼儿童食物剪刀夹</div>
+            </a>
+            <div class="price-wrapper">
+                <span class="price">￥<span>8.8</span></span><span class="price_yj">￥13.8</span><div class="sold-wrapper"><span class="text">销量</span><span class="sold-num">234</span></div>            </div>
+        </div>
+    </div>
+<div  class="pullup-goods">
+    <div class="label">商品加载中...</div>
+</div>
+<script language="javascript">
+
+    if(window.history.state){
+        $('.goods-list').html(window.history.state.list);
+        var page = window.history.state.page;
+    }else{
+        var page = 2;
+    }
+
+    var isFinish = false;
+    var isLoading = false;
+    var $pullUp = null;
+    var needLoadMore = false;
+
+    var maxScrollY = 0;
+    var windowHeight = 0;
+    $(document).ready(function () {
+        maxScrollY = $(document).height();
+        windowHeight = $(window).height();
+        $(window).on('resize', function () {
+            windowHeight = $(window).height();
+        });
+         $(window).scroll(function (e) {
+            if (isFinish || isLoading) {
+                return;
+            }
+            var y = $(document).scrollTop();
+            maxScrollY = $(document).height();
+            windowHeight = $(window).height();
+            if (Math.abs(maxScrollY - windowHeight - y) > 100) {
+                return;
+            }
+            var $wrapper = $(this);
+            if (!$pullUp) {
+                $pullUp = $wrapper.find('.pullup-goods');
+            }
+            var data = null;
+            getData($wrapper, data, 1);
+        });
+        function getData($wrapper, data, direction) {
+            if (isFinish) {
+                return;
+            }
+            isLoading = true;
+            if (!$pullUp) {
+                $pullUp = $wrapper.find('.pullup-goods');
+            }
+            var labelTag = $($pullUp).find('.label');
+            var tPaht="/index.php?r=index/ajaxNine";
+            $.ajax(tPaht,{
+                data: {r: 'index/ajaxNine', page: page,tmpT:new Date().getTime(),cac_id:'cXVlcnlUaGVuRmV0Y2g7NDsyNzQ5MTc0NDY4OkJWRVVlVFRLUzF1aGVYUW52RkhvQkE7Mjc0ODczOTM3NDpKTmxzUWI5SVJwcVVqMkV6YzRXd2hBOzI3NDk2Nzk3MTk6M3BudXQ4azhUdHEtVlZIcU9qZUwzdzsyNzQ5NjM3MjM4OjR0b09PZUxJUlNHaTcyNmducFpPekE7MDs='},
+                dataType: 'json',
+                type: 'post',
+                error: function (xhr, type, errorThrown) {
+                    getData($wrapper, data, direction);
+                },
+                success: function (result, status, xhr) {
+                    needLoadMore = false;
+                    if (result.status == 0) {
+                        if(result.data.pageStatus === false){
+                            isLoading = false;
+                            $('.pullup-goods .label').html('没有更多商品啦');
+                            isFinish = true;
+                        }
+                        $('.goods-list').append(result.data.content);
+//                        myScroll.refresh();
+                        $("img.lazy").lazyload();
+                        aClick();
+                        maxScrollY = $(document).height();
+                        isLoading = false;
+                        page++;
+                        $('.goods-list').attr('data-page',page);
+                        //$(labelTag).html('上拉加载更多商品');
+                    } else {
+//                        myScroll.refresh();
+                        maxScrollY = $(document).height();
+                        isLoading = false;
+                        $(labelTag).html('没有更多商品啦');
+                        isFinish = true;
+                    }
+                }
+            });
+        }
+    });
+    $("img.lazy").lazyload();
+</script>
+
+        <div class="toTop">&#xe6a4;</div>
+        <script src="__app_js__/cms_common.js"></script>
+        <div style="display: none;">
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261605092'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261605092' type='text/javascript'%3E%3C/script%3E"));</script>        </div>
+    </body>
+</html>

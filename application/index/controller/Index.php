@@ -2,12 +2,17 @@
 namespace app\index\controller;
 use tb\Tb;
 use \think\Controller;
+use think\Model;
+use think\Db;
 
 class Index extends Controller
 {
     public function index()
     {
+        $result = db("tb_info")->select();
+        $this->assign("result",$result[0]);
         return view("app/index");
+        // return view("app/index");
     }
 
     public function nine()
@@ -45,6 +50,47 @@ class Index extends Controller
         return view("app/cate");
     }
 
+    public function getinfo()
+    {
+        $result = db("tb_info")->select();
+        return view("app/index",$result[0]);
+        $file = fopen('test1.csv','r'); 
+        while ($data = fgetcsv($file)) {
+            $goods_list[] = $data;
+        }
+        unset($goods_list[0]);
+        foreach ($goods_list as $value) {
+            dump(!empty($value));
+            // if(!empty($value)){
+            //     $arr = [
+            //         'title'                  => $value[1],
+            //         'product_id'             => $value[0],
+            //         'img_main'               => $value[2],        
+            //         'img_detail'             => $value[3],
+            //         'pro_cate'               => $value[4],
+            //         'tb_link'                => $value[5],
+            //         'pro_price'              => $value[6],
+            //         'pro_sales'              => $value[7],
+            //         'income_rate'            => $value[8],
+            //         'commission'             => $value[9],
+            //         'ww_id'                  => $value[10],
+            //         'ww_name'                => $value[11],
+            //         'shop_name'              => $value[12],
+            //         'shop_type'              => $value[13],
+            //         'coupon_id'              => $value[14],
+            //         'coupon_num'             => $value[15],
+            //         'coupon_surplus'         => $value[16],
+            //         'coupon_price'           => $value[17],
+            //         'coupon_start'           => $value[18],
+            //         'coupon_end'             => $value[19],
+            //         'coupon_link'            => $value[20],
+            //         'coupon_tg_link'         => $value[21]
+            //     ];
+            //     db("tb_info")->insert($arr);
+            // }
+        }
+    }
+
 
     public function search()
     {
@@ -63,7 +109,7 @@ class Index extends Controller
     public function demo()
     {
         $tb = new Tb();
-        // $text = "【孜滋味进口混合水果燕麦片即食代早餐冲饮干吃烘焙营养食品燕麦片】";
+        // $text = "【孜滋麦片】";
         $res = $tb->products($text);
         $res = _arr_json($res);
         

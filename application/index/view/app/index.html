@@ -323,43 +323,22 @@ selfs.css({"margin-top":"0px"}).find("li:first").appendTo(selfs);
 
     <div class="shoufa-list">
         <ul>
+            {volist name="result" id="vo"}
+          
                                 <li>
                         <a data-gid="13320017" href="__URL__/app_detail" class="img" >
-                            <img src="../picture/tb274ewvrywbunksmfpxxxguvxa_!!2302546534.jpg_240x240.jpg" alt="">
+                            <img src="{$vo.img_main}" alt="">
                                                     </a>
                         <a data-gid="13320017" href="__URL__/app_detail" class="title">
-                            <div class="text">大东旗舰店  夏季新款高跟时尚凉鞋</div>
+                            <div class="text">{$vo.title}</div>
                         </a>
                         <div class="price-wrapper">
-                            <span class="price">￥<b>59</b></span>
+                            <span class="price">￥<b>{$vo.pro_price}</b></span>
                             <span class="text">券后</span>
                         </div>
                     </li>
-                                    
-                                    <li>
-                        <a data-gid="13402771" href="__URL__/app_detail" class="img" >
-                            <img src="../picture/tb2stydswmwbunjy1xaxxxcbxxa_!!2642961985.jpg_240x240.jpg" alt="">
-                                                    </a>
-                        <a data-gid="13402771" href="__URL__/app_detail" class="title">
-                            <div class="text">鲜享  小西米500g+100g玉米糁</div>
-                        </a>
-                        <div class="price-wrapper">
-                            <span class="price">￥<b>6.8</b></span>
-                            <span class="text">券后</span>
-                        </div>
-                    </li>
-                                    <li>
-                        <a data-gid="13402932" href="__URL__/app_detail" class="img" >
-                            <img src="../picture/tb2ptrbgmvd8kjjssplxxaiefxa_!!1037635562.jpg_240x240.jpg" alt="">
-                                                    </a>
-                        <a data-gid="13402932" href="__URL__/app_detail" class="title">
-                            <div class="text">家世比  多功能可折叠床上户外懒人桌</div>
-                        </a>
-                        <div class="price-wrapper">
-                            <span class="price">￥<b>9.9</b></span>
-                            <span class="text">券后</span>
-                        </div>
-                    </li>
+            {/volist}
+                         
                         </ul>
     </div>
 </div>
